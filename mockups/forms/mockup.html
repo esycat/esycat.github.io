@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <base href="./" />
+
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+    <script src="../lib/requirejs/require.js"></script>
+    <script src="../lib/medium/medium.js"></script>
+
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <script src="../lib/bootstrap/dist//js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./mockup.css" />
+    <script type="text/javascript">
+        require([
+            '../lib/scribe/scribe.min',
+            '../lib/scribe-plugin-toolbar/scribe-plugin-toolbar.min'
+        ],
+        function(Scribe, scribePluginBlockquoteCommand, scribePluginToolbar) {
+            return;
+            var textareas = document.querySelector('.scribe');
+            var scribe = new Scribe(textareas);
+
+            // scribe.use(scribePluginBlockquoteCommand());
+            var toolbars = document.querySelector('.scribe-toolbar');
+            scribe.use(scribePluginToolbar(toolbars));
+            console.log(toolbars);
+        });
+
+        $(function() {
+            // new Medium({
+            //     element: document.getElementById('question-second-description')
+            // });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>New Super Form</h1>
+
+    <section class="form-section">
+        <div class="clearfix">
+            <div class="number">Section 1 of 5</div>
+            <div class="triangle"></div>
+        </div>
+
+        <h2>First Section</h2>
+
+        <article class="form-question">
+            <h3>First Question</h3>
+            <input type="text" class="form-control" disabled="true" />
+        </article>
+
+        <article class="form-question active">
+            <div class="handle handle-h"></div>
+
+            <form role="form">
+                <fieldset>
+                    <div class="field clearfix">
+                        <div class="label-box">
+                            <label for="question-second-type"><span>Type</span></label>
+                        </div>
+                        <span class="label label-info">Multichoice</span>
+                    </div>
+
+                    <div class="field clearfix required">
+                        <div class="label-box">
+                            <label for="question-second-title"><span>Title</span></label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="question-second-title" class="form-control" placeholder="Untitled Question" autofocus="true" required="true" />
+                        </div>
+                    </div>
+
+                    <div class="field clearfix">
+                        <div class="label-box">
+                            <label for="question-second-description"><span>Description</span></label>
+                        </div>
+                        <div class="input-box">
+                            <div class="panel panel-default">
+                                <div class="panel-heading scribe-toolbar">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-sm" data-command-name="bold" style="font-weight: bold;">B</button>
+                                        <button type="button" class="btn btn-default btn-sm" data-command-name="italic" style="font-style: italic">I</button>
+                                        <button type="button" class="btn btn-default btn-sm" data-command-name="underline" style="text-decoration: underline;">U</button>
+                                        <button type="button" class="btn btn-default btn-sm" data-command-name="strikeThrough" style="text-decoration: line-through">S</button>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-sm">
+                                            <span class="glyphicon glyphicon-align-left"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm">
+                                            <span class="glyphicon glyphicon-align-center"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm">
+                                            <span class="glyphicon glyphicon-align-right"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm">
+                                            <span class="glyphicon glyphicon-align-justify"></span>
+                                        </button>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-sm" data-command-name="indent">
+                                            <span class="glyphicon glyphicon-indent-left"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm" data-command-name="outdent">
+                                            <span class="glyphicon glyphicon-indent-right"></span>
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div id="question-second-description" class="panel-body scribe" contenteditable="true">
+                                    A rich-text <b>description</b> for <i>any</i> additional information.
+                                </div>
+                            </div>
+                            <!--
+                            <textarea id="question-second-description" class="form-control">A rich-text description for any additional information.</textarea>
+                            -->
+                        </div>
+                    </div>
+
+                    <div class="field clearfix">
+                        <div class="input-box clearfix">
+                            <ul class="list-group1">
+                                <li class="form-inline">
+                                    <div class="handle handle-v"></div>
+                                    <input type="text" class="form-control" value="Option 1" />
+                                    <select class="form-control">
+                                        <option>0</option>
+                                    </select>
+                                    <span class="remove-option">✕</span>
+                                </li>
+                                <li class="form-inline">
+                                    <div class="handle handle-v"></div>
+                                    <input type="text" class="form-control" value="Option 2" />
+                                    <select class="form-control">
+                                        <option>0</option>
+                                    </select>
+                                    <span class="remove-option">✕</span>
+                                </li>
+                                <li class="form-inline">
+                                    <div class="handle handle-e"></div>
+                                    <input type="text" class="form-control" placeholder="Click to add option" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="field clearfix">
+                        <div class="label-box">
+                            <label for="question-second-shuffle"><span>Shuffle</span></label>
+                        </div>
+                        <div class="input-box">
+                            <input type="checkbox" id="question-second-shuffle" />
+                        </div>
+                    </div>
+
+                    <div class="field clearfix">
+                        <div class="label-box">
+                            <label for="question-second-dropdown"><span>Dropdown</span></label>
+                        </div>
+                        <div class="input-box">
+                            <input type="checkbox" id="question-second-dropdown" />
+                        </div>
+                    </div>
+
+                    <div class="field clearfix">
+                        <div class="label-box">
+                            <label for="question-second-required"><span>Required</span></label>
+                        </div>
+                        <div class="input-box">
+                            <input type="checkbox" id="question-second-required" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="btn-toolbar" role="toolbar">
+                    <button type="button" class="btn btn-primary">Done</button>
+                    <button type="button" class="btn btn-default">Cancel</button>
+                    <button type="button" class="btn btn-default">Help</button>
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default active" title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                        <button type="button" class="btn btn-default" title="Duplicate"><span class="glyphicon glyphicon-file"></span></button>
+                        <button type="button" class="btn btn-danger" title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                    </div>
+                </div>
+            </form>
+        </article>
+
+        <article class="form-question">
+            <h3>Last Question</h3>
+
+            <table class="scale">
+                <tr>
+                    <td><label for="question-third-1" class="inline">1</label></td>
+                    <td><label for="question-third-2" class="inline">2</label></td>
+                    <td><label for="question-third-3" class="inline">3</label></td>
+                    <td><label for="question-third-4" class="inline">4</label></td>
+                    <td><label for="question-third-5" class="inline">5</label></td>
+                    <td><label for="question-third-6" class="inline">6</label></td>
+                    <td><label for="question-third-7" class="inline">7</label></td>
+                    <td><label for="question-third-8" class="inline">8</label></td>
+                    <td><label for="question-third-9" class="inline">9</label></td>
+                    <td><label for="question-third-10" class="inline">10</label></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="question-third" id="question-third-1" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-2" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-3" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-4" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-5" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-6" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-7" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-8" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-9" disabled="true" /></td>
+                    <td><input type="radio" name="question-third" id="question-third-10" disabled="true" /></td>
+                </tr>
+            </table>
+        </article>
+
+        <div class="btn-toolbar clearfix">
+            <div class="btn-group dropdown">
+                <button type="button" class="btn btn-default dropdown-toggle" id="question-type" data-toggle="dropdown">
+                    Add Question
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="question-type">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Blurb</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Text</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Paragraph</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Scale</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Grid</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Multichoice</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tickboxes</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Date/Time</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">File Upload</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Data Lookup</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default">Add Sign Off</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Add Sign Off</a></li>
+                    <li><a href="#">Add Acknowledgment</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default">Add Section</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Add Section</a></li>
+                    <li><a href="#">Add Sub-Section</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <nav class="navbar">
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

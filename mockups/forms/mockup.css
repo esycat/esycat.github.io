@@ -1,0 +1,177 @@
+body {
+    font-family: Ubuntu !important;
+    background-color: #eee;
+    width: 820px;
+    margin: 20px auto;
+}
+
+h1, h2 {
+    margin: 10px 20px;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.handle {
+    width: 18px;
+    height: 6px;
+    margin: auto;
+    background: url('draghandle.png') no-repeat center;
+    cursor: move;
+}
+
+.handle-e {
+    background: none;
+}
+
+.handle-h {}
+
+.handle-v {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+
+
+section.form-section {
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+section.form-section .number {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    height: 22px;
+    padding: .2em .4em;
+    font-size: .85em;
+    background-color: #eaeaea;
+}
+
+section.form-section .triangle {
+    float: left;
+    width: 0;
+    height: 0;
+    border-right: 22px solid transparent;
+    border-top: 22px solid #eaeaea;
+}
+
+section.form-section > article.form-question,
+section.form-section > .btn-toolbar {
+    padding: 20px;
+}
+
+article.form-question.active {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    margin: 10px 0;
+    padding-top: 10px !important;
+    background-color: #fafafa;
+}
+
+article.form-question > .handle {
+}
+
+form {
+}
+
+form fieldset {
+    margin: 10px auto;
+}
+
+form .field {
+    margin: 5px 0;
+}
+
+form .field .label-box {
+    float: left;
+    clear: left;
+    width: 30%;
+    min-width: 150px;
+    max-width: 300px;
+}
+
+form .field .label-box > label {
+    font-size: 100%;
+}
+
+form .field.required > .label-box > label:after {
+    content: '*';
+    margin-left: .5em;
+    color: red;
+}
+
+form .field > .label-box > label > span:after {
+    content: ':';
+}
+
+form .field > .input-box {
+    float: left;
+    width: 70%;
+    margin-left: 30%;
+}
+
+form .field > .label-box + .input-box {
+    margin-left: 0;
+}
+
+form .field textarea {
+    height: 6em;
+}
+
+article.form-question.disabled .form-control[readonly] {
+    background-color: #ebebe4 !important;
+}
+
+form .field > .input-box > ul {
+    margin: 0;
+    padding: 0;
+}
+
+form .field > .input-box > ul > li {
+    padding: 2px 0;
+    list-style: none;
+}
+
+form .field > .input-box > ul > li > .handle {
+    display: inline-block;
+}
+
+form .field > .input-box > .panel {
+    margin-bottom: 0;
+}
+
+article.form-question table.scale {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+article.form-question table.scale td {
+    padding: 0 5px;
+    text-align: center;
+}
+
+article.form-question label.inline {
+    font-weight: normal;
+}
+
+.remove-option {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: gray;
+}
+
+.remove-option:hover {
+    background-color: #ddd;
+}
