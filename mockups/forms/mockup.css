@@ -19,6 +19,11 @@ h3 {
     font-weight: bold;
 }
 
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
 .handle {
     width: 18px;
     height: 6px;
@@ -41,6 +46,7 @@ h3 {
 
 section.form-section {
     border: 1px solid #ddd;
+    margin: 10px auto;
     background-color: white;
 }
 
@@ -174,4 +180,8 @@ article.form-question label.inline {
 
 .remove-option:hover {
     background-color: #ddd;
+}
+
+nav .pagination {
+    margin: 0;
 }

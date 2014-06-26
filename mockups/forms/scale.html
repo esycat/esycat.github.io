@@ -15,28 +15,7 @@
     <script src="../lib/bootstrap/dist//js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="./mockup.css" />
-    <script type="text/javascript">
-        require([
-            '../lib/scribe/scribe.min',
-            '../lib/scribe-plugin-toolbar/scribe-plugin-toolbar.min'
-        ],
-        function(Scribe, scribePluginBlockquoteCommand, scribePluginToolbar) {
-            return;
-            var textareas = document.querySelector('.scribe');
-            var scribe = new Scribe(textareas);
-
-            // scribe.use(scribePluginBlockquoteCommand());
-            var toolbars = document.querySelector('.scribe-toolbar');
-            scribe.use(scribePluginToolbar(toolbars));
-            console.log(toolbars);
-        });
-
-        $(function() {
-            // new Medium({
-            //     element: document.getElementById('question-second-description')
-            // });
-        });
-    </script>
+    <script src="./mockup.js"></script>
 </head>
 
 <body>
@@ -64,7 +43,7 @@
                         <div class="label-box">
                             <label for="question-second-type"><span>Type</span></label>
                         </div>
-                        <span class="label label-info">Multichoice</span>
+                        <span class="label label-info">Rating</span>
                     </div>
 
                     <div class="field clearfix required">
@@ -116,57 +95,38 @@
 
                                 </div>
                                 <div id="question-second-description" class="panel-body scribe" contenteditable="true">
-                                    A rich-text <b>description</b> for <i>any</i> additional information.
+                                    <p>The <b>From</b> value can be either <code>0</code> or <code>1</code>.</p>
+                                    <p>The <b>To</b> value can be between <code>2</code> and <code>10</code>.</p>
+                                    <p>The optional labels will be displayed before and after the scale, respectively.</p>
                                 </div>
                             </div>
-                            <!--
-                            <textarea id="question-second-description" class="form-control">A rich-text description for any additional information.</textarea>
-                            -->
-                        </div>
-                    </div>
-
-                    <div class="field clearfix">
-                        <div class="input-box clearfix">
-                            <ul class="list-group1">
-                                <li class="form-inline">
-                                    <div class="handle handle-v"></div>
-                                    <input type="text" class="form-control" value="Option 1" />
-                                    <select class="form-control">
-                                        <option>0</option>
-                                    </select>
-                                    <span class="remove-option">✕</span>
-                                </li>
-                                <li class="form-inline">
-                                    <div class="handle handle-v"></div>
-                                    <input type="text" class="form-control" value="Option 2" />
-                                    <select class="form-control">
-                                        <option>0</option>
-                                    </select>
-                                    <span class="remove-option">✕</span>
-                                </li>
-                                <li class="form-inline">
-                                    <div class="handle handle-e"></div>
-                                    <input type="text" class="form-control" placeholder="Click to add option" />
-                                </li>
-                            </ul>
                         </div>
                     </div>
 
                     <div class="field clearfix">
                         <div class="label-box">
-                            <label for="question-second-shuffle"><span>Shuffle</span></label>
+                            <label for="question-second-form"><span>From</span></label>
                         </div>
-                        <div class="input-box">
-                            <input type="checkbox" id="question-second-shuffle" />
+                        <div class="input-box clearfix form-inline">
+                            <select class="form-control" id="question-second-form">
+                                <option selected="true">0</option>
+                                <option>1</option>
+                                <option>10</option>
+                            </select>
+                            <input type="text" class="form-control" placeholder="Label (optional)" />
                         </div>
                     </div>
 
                     <div class="field clearfix">
                         <div class="label-box">
-                            <label for="question-second-dropdown"><span>Dropdown</span></label>
+                            <label for="question-second-to"><span>To</span></label>
                         </div>
-                        <div class="input-box">
-                            <input type="checkbox" id="question-second-dropdown" />
+                        <div class="input-box clearfix form-inline">
+                            <select class="form-control" id="question-second-to">
+                                <option>2</option>
+                                <option selected="true">10</option>
+                            </select>
+                            <input type="text" class="form-control" placeholder="Label (optional)" />
                         </div>
                     </div>
 
@@ -226,7 +186,7 @@
 
         <div class="btn-toolbar clearfix">
             <div class="btn-group dropdown">
-                <button type="button" class="btn btn-default dropdown-toggle" id="question-type" data-toggle="dropdown">
+                <button type="button" class="btn btn-default dropdown-toggle" id="add-question" data-toggle="dropdown">
                     Add Question
                     <span class="caret"></span>
                 </button>
@@ -246,6 +206,8 @@
                     <li><a tabindex="-1" href="#">Data Lookup</a></li>
                 </ul>
             </div>
+
+            <button type="button" class="btn btn-default" id="add-questionnairy">Add from Questionnairy</button>
 
             <div class="btn-group pull-right">
                 <button type="button" class="btn btn-default">Add Sign Off</button>
@@ -270,18 +232,6 @@
             </div>
         </div>
     </section>
-
-    <nav class="navbar">
-        <ul class="pagination">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&raquo;</a></li>
-        </ul>
-    </nav>
 </body>
 
 </html>
