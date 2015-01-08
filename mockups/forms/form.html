@@ -200,6 +200,69 @@
             </table>
         </article>
 
+        <article class="form-question active">
+            <div class="handle handle-h"></div>
+
+            <form>
+                <fieldset>
+                    <div class="field clearfix">
+                        <div class="label-box">
+                            <label for="signoff-type"><span>Type</span></label>
+                        </div>
+                        <span class="label label-info">Sign Off</span>
+                    </div>
+
+                    <div class="field clearfix required">
+                        <div class="label-box">
+                            <label for="signoff-target-field"><span>Target Field</span></label>
+                        </div>
+                        <div class="input-box">
+                            <button type="button" class="btn btn-default">Select&hellip;</button>
+                            <!-- This button needs to be improved. -->
+                        </div>
+                    </div>
+
+                    <div class="field clearfix required">
+                        <div class="label-box">
+                            <label for="signoff-disclaimer"><span>Disclaimer</span></label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="signoff-disclaimer" class="form-control" placeholder="I have read and understand the terms and conditions." autofocus="true" required="true" />
+                        </div>
+                    </div>
+
+                    <div class="field clearfix">
+                        <div class="label-box">
+                            <label for="signoff-required"><span>Required</span></label>
+                        </div>
+                        <div class="input-box">
+                            <input type="checkbox" id="signoff-required" />
+                        </div>
+                    </div>
+
+                    <div class="field clearfix">
+                        <div class="label-box">
+                            <label for="signoff-final"><span>Final</span></label>
+                        </div>
+                        <div class="input-box">
+                            <input type="checkbox" id="signoff-final" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="btn-toolbar">
+                    <button type="button" class="btn btn-primary">Done</button>
+                    <button type="button" class="btn btn-default">Cancel</button>
+                    <button type="button" class="btn btn-default">Help</button>
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default active" title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                        <button type="button" class="btn btn-default" title="Duplicate"><span class="glyphicon glyphicon-file"></span></button>
+                        <button type="button" class="btn btn-danger" title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                    </div>
+                </div>
+            </form>
+        </article>
+
         <div class="btn-toolbar clearfix">
             <div class="btn-group dropdown">
                 <button type="button" class="btn btn-default dropdown-toggle" id="add-question" data-toggle="dropdown">
