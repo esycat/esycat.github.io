@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
+    <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script>
+        var pois = [
+            {
+                latitude: 55.768626,
+                longitude: 37.702294,
+                title: 'Полина Михалакисовна Кириаку',
+                subtitle: 'Врач травматолог',
+                icon: '🧑🏻‍⚕️'
+            },
+            {
+                latitude: 55.768746,
+                longitude: 37.702294,
+                title: 'Гайк Каренович Парсаданян',
+                subtitle: 'Травматолог-ортопед',
+                icon: '👨🏿‍⚕️'
+            }
+        ];
+
+        var annotations = [];
+
+        for (const poi of pois) {
+            var coordinate = new mapkit.Coordinate(poi.latitude, poi.longitude);
+            // var poiRegion = new mapkit.CoordinateRegion(
+            //     coordinate,
+            //     new mapkit.CoordinateSpan(0.1, 0.1)
+            // )
+
+            var annotation = new mapkit.MarkerAnnotation(coordinate);
+            annotation.color = "#969696";
+            annotation.title = poi.title;
+            annotation.subtitle = poi.subtitle;
+            annotation.selected = "true";
+            annotation.glyphText = poi.icon;
+
+            annotations.push(annotation);
+        }
+
+        mapkit.init({
+            authorizationCallback: function (done) {
+                // fetch("/gettoken").then(res => res.text()).then(done);
+                done("eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ilo3OTdZQjJCOFYifQ.eyJpc3MiOiJVQ0RXQ1NVRzY2Iiwib3JpZ2luIjoiaHR0cHM6Ly9lc3ljYXQuZ2l0aHViLmlvIiwiaWF0IjoxNTk0MzkxNTYxLCJleHAiOjE2MDk5NDM1NjF9.UWRrAKNWIYLWQ0kejXIhON-x6WLYhtgC6Bo4lZw89AqdSOxidgkIWHwRvepWQshaXBCnKGvHP6JqTl66xPNZtQ");
+            },
+            language: "ru"
+        });
+
+        var map = new mapkit.Map("map");
+
+        // map.cameraZoomRange = new mapkit.CameraZoomRange(250, 15000);
+        map.cameraDistance = 80000;
+        map.showItems(annotations);
+    </script>
+</body>
+
+</html>
